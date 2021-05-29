@@ -1,0 +1,46 @@
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: 'Noto Serif JP', serif; 
+  line-height: 1.7;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  color: #e0e0e0;
+}
+
+.home-icon {
+  width: 35px;
+  height: 35px;
+}
+
+ul {
+ display: flex;
+ list-style: none;
+  
+  li {
+    margin-left: 20px;
+  }
+  
+   img {
+     width: 30px;
+     height: 30px;
+   }
+   
+   :hover {
+     color: #e0e0e0;
+   }
+}
+
+.pages-wrapper {
+  width: 100%vw;
+  height: 100%vh;
+  background-image: url("image/kome.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}

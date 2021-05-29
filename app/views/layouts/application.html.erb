@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sss</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% flash.each do |key,value| %>
+    <p class="alert alert-<%= key %>",role="alert">
+      <%= value %>
+    </p>
+    <% end %>
+    
+    <nav>
+     <div class="navbar navbar-default navbar-trancparent">
+       <%= link_to root_path do %> 
+       <%= image_tag "images/logo.png",class:"home-icon" %>
+       <% end %>
+     </div>
+     
+     <div class="navbar navbar-nav">
+       <% if user_signed_in? %>
+       <p>User: <%=current_user.name %></p>
+        <ul>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= image_tag "images/logout.png",class:"icon" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to rooms_show_path do %>
+            <%= image_tag "images/comment.png",class:"icon" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to users_index_path do %>
+            <%= image_tag "images/users.png",class:"icon" %>
+            <% end %>
+          </li>
+        </ul>
+        <% else %>
+       <ul>
+         <li>
+           <%= link_to new_user_registration_path do %>
+           <%= image_tag "images/register.png",class:"icon" %>
+           <% end %>
+         </li>
+         <li>
+           <%= link_to new_user_session_path do %>
+           <%= image_tag "images/login.png",class:"icon" %>
+           <% end %>
+         </li>
+       </ul>
+       <% end %>
+     </div>
+   </nav>
+    <%= yield %>
+    
+    <script>
+      $(function(){
+        $(".alert").fadeOut(3000);
+      });
+    </script>
+  </body>
+</html>

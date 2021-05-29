@@ -1,0 +1,16 @@
+<h1>ユーザー一覧</h1>
+<% @users.each do |user| %>
+<%= link_to users_show_path(id: user.id) do %>
+<p><%= user.name %></p>
+<%= image_tag user.image_icon.url %>
+<% end %>
+<% end %>
+
+<h1>マッチングユーザー</h1>
+<% @match_user.each do |user| %>
+<%= link_to users_show_path(id: user.id) do %>
+<p><%= user.name %></p>
+<%= image_tag user.image_icon.url %>
+<% end %>
+<% end %>
+
